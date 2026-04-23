@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body, html {
+      height: 100%;
+    }
+
+    /* Background */
+    .hero {
+      position: relative;
+      height: 100vh;
+      background: url('background.jpg') center/cover no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+    }
+
+    /* Overlay (filter effect) */
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5); /* black 50% */
+      z-index: 1;
+    }
+
+    /* Content */
+    .content {
+      position: relative;
+      z-index: 2;
+      padding: 20px;
+    }
+
+    .content h1 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+
+    .content p {
+      font-size: 0.9rem;
+      margin-bottom: 20px;
+    }
+
+    /* Button */
+    .btn {
+      padding: 10px 20px;
+      border: 1px solid white;
+      color: white;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: white;
+      color: black;
+    }
+
+    /* Hamburger */
+    .hamburger {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      z-index: 3;
+      cursor: pointer;
+    }
+
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background: white;
+      margin: 5px;
+    }
+
+    /* Menu */
+    .menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 70%;
+      height: 100vh;
+      background: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transition: 0.3s;
+      z-index: 4;
+    }
+
+    .menu a {
+      margin: 15px;
+      text-decoration: none;
+      color: black;
+      font-size: 1.2rem;
+    }
+
+    .menu.active {
+      right: 0;
+    }
+
+    /* Close button */
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* Desktop */
+    @media(min-width: 768px) {
+      .content h1 {
+        font-size: 2.5rem;
+      }
+
+      .content p {
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Hamburger -->
+  <div class="hamburger" onclick="openMenu()">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+
+  <!-- Menu -->
+  <div class="menu" id="menu">
+    <div class="close" onclick="closeMenu()">✕</div>
+    <a href="indexChi.html">Home</a>
+    <a href="showcaseChi.html">Projects</a>
+    <a href="personalChi.html">Personal</a>
+    <a href="mailto: mokoishun620@gmail.com">Contact</a>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="overlay"></div>
+
+    <div class="content">
+      <h1>Hi, I am (Name)</h1>
+      <p>(Introduce role)</p>
+      <a href="cv.pdf" class="btn" download>Download CV</a>
+    </div>
+  </section>
+
+  <script>
+    function openMenu() {
+      document.getElementById('menu').classList.add('active');
+    }
+
+    function closeMenu() {
+      document.getElementById('menu').classList.remove('active');
+    }
+  </script>
+
+</body>
+</html>
+
+ <!-- https://chatgpt.com/share/69c2ffa8-cd60-800a-810a-6417c5260239 -->

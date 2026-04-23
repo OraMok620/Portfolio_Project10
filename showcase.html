@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Showcase</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body, html {
+      height: 100%;
+    }
+
+    /* Background */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      background: url('background.jpg') center/cover no-repeat;
+      color: white;
+    }
+
+    .overlay {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      z-index: 1;
+    }
+
+    /* Hamburger */
+    .hamburger {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      z-index: 3;
+      cursor: pointer;
+    }
+
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background: white;
+      margin: 5px;
+    }
+
+    /* Menu */
+    .menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 70%;
+      height: 100vh;
+      background: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transition: 0.3s;
+      z-index: 4;
+    }
+
+    .menu a {
+      margin: 15px;
+      text-decoration: none;
+      color: black;
+      font-size: 1.2rem;
+    }
+
+    .menu.active {
+      right: 0;
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* Content */
+    .container {
+      position: relative;
+      z-index: 2;
+      padding: 80px 20px;
+    }
+
+    /* Title */
+    .title {
+      text-align: center;
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+    }
+
+    /* Filter */
+    .filter {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .filter select {
+      padding: 8px 12px;
+      border-radius: 20px;
+      border: none;
+      outline: none;
+    }
+
+    /* Grid */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+
+    /* Card */
+    .card {
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      text-decoration: none;
+      color: black;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: scale(1.03);
+    }
+
+    .card img {
+      width: 100%;
+      height: 100px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 10px;
+      text-align: center;
+    }
+
+    .card-title {
+      font-size: 0.9rem;
+      margin-bottom: 5px;
+    }
+
+    .tag {
+      font-size: 0.7rem;
+      background: #eee;
+      padding: 3px 8px;
+      border-radius: 10px;
+      display: inline-block;
+    }
+
+    /* Desktop */
+    @media(min-width: 768px) {
+      .grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .card img {
+        height: 150px;
+      }
+
+      .title {
+        font-size: 2.5rem;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- Hamburger -->
+  <div class="hamburger" onclick="openMenu()">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+
+  <!-- Menu -->
+  <div class="menu" id="menu">
+    <div class="close" onclick="closeMenu()">✕</div>
+    <a href="index.html">Home</a>
+    <a href="showcase.html">Projects</a>
+    <a href="personal.html">Personal</a>
+    <a href="mailto: mokoishun620@gmail.com">Contact</a>
+  </div>
+
+  <section class="hero">
+    <div class="overlay"></div>
+
+    <div class="container">
+
+      <!-- Title -->
+      <h1 class="title">Showcase</h1>
+
+      <!-- Filter -->
+      <div class="filter">
+        <select id="filter" onchange="filterProjects()">
+          <option value="all">All</option>
+          <option value="ux">UX</option>
+          <option value="design">Design</option>
+          <option value="tech">Tech</option>
+        </select>
+      </div>
+
+      <!-- Grid -->
+      <div class="grid" id="projectGrid">
+
+        <!-- Card -->
+        <a href="ux.html" class="card" data-category="ux">
+          <img src="ux1.png">
+          <div class="card-content">
+            <div class="card-title">UX project</div>
+            <div class="tag">UX</div>
+            <div class="tag">Figma</div>
+            <div class="tag">Wireframing</div>
+            <div class="tag">UX Research</div>
+          </div>
+        </a>
+
+        <a href="gwds.html" class="card" data-category="design">
+          <img src="gwds1.png">
+          <div class="card-content">
+            <div class="card-title">Web & Logo Design</div>
+            <div class="tag">Design</div>
+            <div class="tag">Branding</div>
+            <div class="tag">Adobe Creative Suite</div>
+            <div class="tag">Bootstrap</div>
+          </div>
+        </a>
+
+        <a href="cpc.html" class="card" data-category="tech">
+          <img src="cpc1.png">
+          <div class="card-content">
+            <div class="card-title">Creative Coding in Contemporary Web Technologies</div>
+            <div class="tag">Tech</div>
+            <div class="tag">Coding</div>
+            <div class="tag">JS</div>
+            <div class="tag">three.js</div>
+            <div class="tag">tone.js</div>
+            <div class="tag">gltf_model</div>
+          </div>
+        </a>
+
+      </div>
+
+    </div>
+  </section>
+
+  <script>
+    function openMenu() {
+      document.getElementById('menu').classList.add('active');
+    }
+
+    function closeMenu() {
+      document.getElementById('menu').classList.remove('active');
+    }
+
+    function filterProjects() {
+      let filter = document.getElementById("filter").value;
+      let cards = document.querySelectorAll(".card");
+
+      cards.forEach(card => {
+        if (filter === "all" || card.dataset.category === filter) {
+          card.style.display = "block";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>
+
+<!--picked Chi version-->

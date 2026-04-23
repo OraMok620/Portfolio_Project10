@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Showcase</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body, html {
+      height: 100%;
+    }
+
+    /* Background */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      background: url('background.jpg') center/cover no-repeat;
+      color: white;
+    }
+
+    .overlay {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      z-index: 1;
+    }
+
+    /* Hamburger */
+    .hamburger {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      z-index: 3;
+      cursor: pointer;
+    }
+
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background: white;
+      margin: 5px;
+    }
+
+    /* Menu */
+    .menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 70%;
+      height: 100vh;
+      background: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transition: 0.3s;
+      z-index: 4;
+    }
+
+    .menu a {
+      margin: 15px;
+      text-decoration: none;
+      color: black;
+      font-size: 1.2rem;
+    }
+
+    .menu.active {
+      right: 0;
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* Content */
+    .container {
+      position: relative;
+      z-index: 2;
+      padding: 80px 20px;
+    }
+
+    /* Title */
+    .title {
+      text-align: center;
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+    }
+
+    /* Filter */
+    .filter {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .filter select {
+      padding: 8px 12px;
+      border-radius: 20px;
+      border: none;
+      outline: none;
+    }
+
+    /* Grid */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+
+    /* Card */
+    .card {
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      text-decoration: none;
+      color: black;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: scale(1.03);
+    }
+
+    .card img {
+      width: 100%;
+      height: 100px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 10px;
+      text-align: center;
+    }
+
+    .card-title {
+      font-size: 0.9rem;
+      margin-bottom: 5px;
+    }
+
+    .tag {
+      font-size: 0.7rem;
+      background: #eee;
+      padding: 3px 8px;
+      border-radius: 10px;
+      display: inline-block;
+    }
+
+    /* Desktop */
+    @media(min-width: 768px) {
+      .grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .card img {
+        height: 150px;
+      }
+
+      .title {
+        font-size: 2.5rem;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- Hamburger -->
+  <div class="hamburger" onclick="openMenu()">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+
+  <!-- Menu -->
+  <div class="menu" id="menu">
+    <div class="close" onclick="closeMenu()">✕</div>
+    <a href="indexChi.html">Home</a>
+    <a href="showcaseChi.html">Projects</a>
+    <a href="personalChi.html">Personal</a>
+    <a href="mailto: mokoishun620@gmail.com">Contact</a>
+  </div>
+
+  <section class="hero">
+    <div class="overlay"></div>
+
+    <div class="container">
+
+      <!-- Title -->
+      <h1 class="title">Showcase</h1>
+
+      <!-- Filter -->
+      <div class="filter">
+        <select id="filter" onchange="filterProjects()">
+          <option value="all">All</option>
+          <option value="group1">tag 1</option>
+          <option value="group2">tag 2</option>
+          <option value="group3">tag 3</option>
+        </select>
+      </div>
+
+      <!-- Grid -->
+      <div class="grid" id="projectGrid">
+
+        <!-- Card -->
+        <a href="projectDetailsChi.html" class="card" data-category="group1">
+          <img src="img1.jpg">
+          <div class="card-content">
+            <div class="card-title">Project Title 1</div>
+            <div class="tag">tag 1</div>
+          </div>
+        </a>
+
+        <a href="projectDetailsChi.html" class="card" data-category="group2">
+          <img src="img2.jpg">
+          <div class="card-content">
+            <div class="card-title">Project Title 2</div>
+            <div class="tag">tag 2</div>
+          </div>
+        </a>
+
+        <a href="projectDetailsChi.html" class="card" data-category="group3">
+          <img src="img3.jpg">
+          <div class="card-content">
+            <div class="card-title">Project Title 3</div>
+            <div class="tag">tag 3</div>
+          </div>
+        </a>
+
+      </div>
+
+    </div>
+  </section>
+
+  <script>
+    function openMenu() {
+      document.getElementById('menu').classList.add('active');
+    }
+
+    function closeMenu() {
+      document.getElementById('menu').classList.remove('active');
+    }
+
+    function filterProjects() {
+      let filter = document.getElementById("filter").value;
+      let cards = document.querySelectorAll(".card");
+
+      cards.forEach(card => {
+        if (filter === "all" || card.dataset.category === filter) {
+          card.style.display = "block";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>
+
+<!--https://chatgpt.com/share/69d3a9e3-e020-8325-a100-50f225ca097d-->

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Graphic and Web Design</title>
+
+<style>
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body, html {
+  height: 100%;
+  color: white;
+}
+
+/* Hero Background */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  background: url('background.jpg') center/cover no-repeat;
+}
+
+/* Overlay */
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  z-index: 1;
+}
+
+/* Content wrapper */
+.wrapper {
+  position: relative;
+  z-index: 2;
+  padding: 80px 20px 40px;
+}
+
+/* Hamburger */
+.hamburger {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 3;
+  cursor: pointer;
+}
+
+.hamburger div {
+  width: 25px;
+  height: 3px;
+  background: white;
+  margin: 5px;
+}
+
+/* Menu */
+.menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 70%;
+  height: 100vh;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s;
+  z-index: 4;
+}
+
+.menu a {
+  margin: 15px;
+  text-decoration: none;
+  color: black;
+  font-size: 1.2rem;
+}
+
+.menu.active {
+  right: 0;
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* ================= */
+/* Carousel */
+/* ================= */
+.carousel {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+
+.slides {
+  display: flex;
+  transition: 0.4s;
+}
+
+.slides img {
+  width: 100%;
+  flex-shrink: 0;
+}
+
+/* arrows */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.5rem;
+  padding: 10px;
+  cursor: pointer;
+  background: rgba(0,0,0,0.5);
+}
+
+.left { left: 10px; }
+.right { right: 10px; }
+
+/* ================= */
+/* Text sections */
+/* ================= */
+.section {
+  margin-bottom: 25px;
+}
+
+.section h2 {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+
+.section p {
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* Tools list */
+ul {
+  margin-left: 20px;
+  font-size: 0.9rem;
+}
+
+/* Video */
+.video iframe {
+  width: 100%;
+  height: 200px;
+  border: none;
+}
+
+/* Button */
+.btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: 1px solid white;
+  color: white;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: white;
+  color: black;
+}
+
+/* Desktop */
+@media(min-width:768px){
+  .wrapper {
+    max-width: 600px;
+    margin: auto;
+  }
+
+  .video iframe {
+    height: 300px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Hamburger -->
+<div class="hamburger" onclick="openMenu()">
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
+
+<!-- Menu -->
+<div class="menu" id="menu">
+  <div class="close" onclick="closeMenu()">✕</div>
+  <a href="index.html">Home</a>
+  <a href="showcase.html">Projects</a>
+  <a href="personal.html">Personal</a>
+  <a href="mailto: mokoishun620@gmail.com">Contact</a>
+</div>
+
+<!-- Main -->
+<section class="hero">
+<div class="overlay"></div>
+
+<div class="wrapper">
+
+  <!-- Carousel -->
+  <div class="carousel">
+    <div class="slides" id="slides">
+      <img src="gwds2.png">
+      <img src="gwds3.png">
+      <img src="gwds4.png">
+    </div>
+
+    <div class="arrow left" onclick="prevSlide()">‹</div>
+    <div class="arrow right" onclick="nextSlide()">›</div>
+  </div>
+
+  <!-- Overview -->
+  <div class="section">
+    <h2>Project Overview</h2>
+    <p>
+        For this project, I designed a complete brand identity and built a responsive website for a fictional non-profit "Pay As You Feel" restaurant that rescues surplus food from supermarkets to provide meals for the community.
+        I created a restaurant name and logo, produced three mockups showing branding in real-world and developed a mobile-first website using Bootstrap 5 featuring a rotating menu, reservation form, location details, and food box collection information. 
+        The goal was to create a cohesive brand experience that helps the restaurant communicate its mission of reducing food waste while serving everyone with dignity, regardless of their ability to pay.
+    </p>
+  </div>
+
+  <!-- Tools -->
+  <div class="section">
+    <h2>Tools Used</h2>
+    <ul>
+        <li>Bootstrap</li>
+        <li>Adobe Photoshop</li>
+        <li>Adobe Illustrator</li>
+        <li>Adobe InDesign</li>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+        <li>GitHub</li>
+    </ul>
+  </div>
+
+  <!-- Video -->
+  <div class="section video">
+    <h2>Designed Website</h2>
+    <a href="https://oramok620.github.io/GreenGrill/" class="btn" target="_blank">Visit Website</a>
+  </div>
+
+  <!-- Download -->
+  <a href="gwds.pdf" class="btn" download>Download Portfolio</a>
+
+</div>
+</section>
+
+<script>
+/* Menu */
+function openMenu() {
+  document.getElementById('menu').classList.add('active');
+}
+function closeMenu() {
+  document.getElementById('menu').classList.remove('active');
+}
+
+/* Carousel */
+let index = 0;
+const slides = document.getElementById('slides');
+const total = slides.children.length;
+
+function showSlide(i){
+  slides.style.transform = `translateX(-${i * 100}%)`;
+}
+
+function nextSlide(){
+  index = (index + 1) % total;
+  showSlide(index);
+}
+
+function prevSlide(){
+  index = (index - 1 + total) % total;
+  showSlide(index);
+}
+</script>
+
+</body>
+</html>
+
+<!-- picked chi version -->

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Other experience</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body, html {
+      height: 100%;
+    }
+
+    /* HERO BACKGROUND */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      background: url('background.jpg') center/cover no-repeat;
+      color: white;
+    }
+
+    .overlay {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.4);
+      z-index: 1;
+    }
+
+    /* CONTENT WRAPPER */
+    .content {
+      position: relative;
+      z-index: 2;
+      padding: 80px 20px 40px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    /* TEXT STYLES */
+    .title {
+      text-align: center;
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+      opacity: 0.9;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 1.6rem;
+      margin-bottom: 10px;
+    }
+
+    .description {
+      text-align: center;
+      font-size: 0.95rem;
+      margin-bottom: 25px;
+      line-height: 1.5;
+    }
+
+    h2 {
+      font-size: 1.2rem;
+      margin: 20px 0 10px;
+    }
+
+    /* CARD BOX */
+    .card {
+      background: rgba(255,255,255,0.85);
+      color: black;
+      padding: 15px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    .card ol {
+      padding-left: 20px;
+    }
+
+    .card li {
+      margin-bottom: 5px;
+    }
+
+    /* SUBTITLE */
+    .subtitle {
+      text-align: center;
+      margin: 25px 0 10px;
+      font-size: 1rem;
+      opacity: 0.9;
+    }
+
+    /* GRID LIST */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .grid-item {
+      background: rgba(255,255,255,0.85);
+      color: black;
+      padding: 10px;
+      text-align: center;
+      border-radius: 5px;
+      font-size: 0.9rem;
+    }
+
+    /* HAMBURGER */
+    .hamburger {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      z-index: 3;
+      cursor: pointer;
+    }
+
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background: white;
+      margin: 5px 0;
+    }
+
+    /* MENU */
+    .menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 70%;
+      height: 100%;
+      background: white;
+      color: black;
+      padding: 50px 20px;
+      transition: 0.3s;
+      z-index: 4;
+    }
+
+    .menu.active {
+      right: 0;
+    }
+
+    .menu a {
+      display: block;
+      margin: 20px 0;
+      text-decoration: none;
+      color: black;
+      font-size: 1.2rem;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* DESKTOP */
+    @media(min-width: 768px) {
+      .content {
+        padding: 100px 40px;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      .description {
+        font-size: 1.1rem;
+      }
+
+      .grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .menu {
+        width: 30%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="hero">
+  <div class="overlay"></div>
+
+  <!-- HAMBURGER -->
+  <div class="hamburger" onclick="openMenu()">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div class="content">
+
+    <!-- 1. TITLE -->
+    <div class="title">Not only Digital field...</div>
+
+    <!-- 2. HEADING -->
+    <h1>Other experiences</h1>
+
+    <!-- 3. DESCRIPTION -->
+    <p class="description">
+      From secondary school to my third year at university, I organised group orders for anime merchandise for around 6 years. What started as a personal hobby gradually developed into a small-scale operation involving pricing strategy, spreadsheet-based financial tracking, logistics coordination, and social media customer management.
+        After moving to the UK, I continued managing the project remotely while delegating local fulfilment to a collaborator.
+    </p>
+
+    <!-- 4. HEADING 2 -->
+    <h2>My role</h2>
+
+    <!-- 5. LIST -->
+    <div class="card">
+      <ol>
+        <li>Tracking for new merchandise information.</li>
+        <li>Tracked trend on popularity trend of game characters</li>
+        <li>Developed pricing adjustments based on character popularity and market demand.</li>
+        <li>Edit the image, make sure the information (text) in image is clearly visible.</li>
+        <li>Monitored exchange rates (JPY to HKD) to calculate item pricing.</li>
+        <li>Set selling prices based on cost structure. For example, if the exchange rate was 0.05, the price would be adjusted to around 0.06 to include shipping cost.</li>
+        <li>Maintained structured payment records and order tracking.</li>
+        <li>Keeping communication</li>
+      </ol>
+    </div>
+
+    <!-- 6. HEADING 3 -->
+    <h2>Workflow</h2>
+
+    <!-- 7. LIST -->
+    <div class="card">
+      <ol>
+        <li>Tracking for new merchandise information.</li>
+        <li>Post into social media (looking for anyone want other characters’ merchandise in the same box)</li>
+        <li>Price adjustments based on character popularity.</li>
+        <li>Open group chat for managing announcements (such as arrival of merchandise, how to get the merchandise after its arrival)</li>
+        <li>Collecting payment</li>
+        <li>Keep tracking for when the merchandise is sent from online shop and when it will arrive to the container warehouse</li>
+        <li>After the arrival of merchandise, communicate with collaborator, asking for help for handing over merchandise to customers or sending small parcel to customers.</li>
+      </ol>
+    </div>
+
+    <!-- 8. SUBTITLE -->
+    <div class="subtitle">Tools Used</div>
+
+    <!-- 9. GRID LIST -->
+    <div class="grid">
+      <div class="grid-item">Social Media</div>
+      <div class="grid-item">Spreadsheet</div>
+      <div class="grid-item">Payment app</div>
+      <div class="grid-item">Image editing software</div>
+    </div>
+
+    <!-- 10. SUBTITLE 2 -->
+    <div class="subtitle">Skills Demonstrated</div>
+
+    <!-- 11. GRID LIST -->
+    <div class="grid">
+      <div class="grid-item">Community Management</div>
+      <div class="grid-item">Pricing & Cost Strategy</div>
+      <div class="grid-item">Spreadsheet-based Financial Tracking</div>
+      <div class="grid-item">Cross-border Coordination</div>
+      <div class="grid-item">Social Media Content Design</div>
+      <div class="grid-item">Customer Communication</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- MENU -->
+<div class="menu" id="menu">
+  <div class="close-btn" onclick="closeMenu()">&times;</div>
+  <a href="index.html">Home</a>
+  <a href="showcase.html">Projects</a>
+  <a href="personal.html">Personal</a>
+  <a href="mail to: mokoishun620@gmail.com">Contact</a>
+</div>
+
+<script>
+  function openMenu() {
+    document.getElementById('menu').classList.add('active');
+  }
+
+  function closeMenu() {
+    document.getElementById('menu').classList.remove('active');
+  }
+</script>
+
+</body>
+</html>
+
+<!-- picked Eng ver -->

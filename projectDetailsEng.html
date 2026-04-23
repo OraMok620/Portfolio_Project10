@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Details</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body, html {
+      height: 100%;
+      color: white;
+    }
+
+    /* HERO BACKGROUND */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      background: url('background.jpg') center/cover no-repeat;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      z-index: 1;
+    }
+
+    /* CONTENT WRAPPER */
+    .content {
+      position: relative;
+      z-index: 2;
+      padding: 80px 20px 40px;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    /* CAROUSEL */
+    .carousel {
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 30px;
+    }
+
+    .slides {
+      display: flex;
+      transition: transform 0.3s ease;
+    }
+
+    .slide {
+      min-width: 100%;
+    }
+
+    .slide img {
+      width: 100%;
+      display: block;
+    }
+
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 20px;
+      background: rgba(0,0,0,0.5);
+      border: none;
+      color: white;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+
+    .prev { left: 10px; }
+    .next { right: 10px; }
+
+    /* TEXT STYLING */
+    h2 {
+      margin: 20px 0 10px;
+      font-size: 1.2rem;
+      border-bottom: 1px solid white;
+      padding-bottom: 5px;
+    }
+
+    p {
+      font-size: 0.95rem;
+      line-height: 1.5;
+      margin-bottom: 15px;
+    }
+
+    ul {
+      margin-left: 20px;
+      margin-bottom: 15px;
+    }
+
+    li {
+      margin-bottom: 5px;
+    }
+
+    a.link {
+      display: inline-block;
+      margin: 10px 0;
+      color: white;
+      text-decoration: underline;
+      font-size: 0.9rem;
+    }
+
+    /* HAMBURGER */
+    .hamburger {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      z-index: 3;
+      cursor: pointer;
+    }
+
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background: white;
+      margin: 5px 0;
+    }
+
+    /* MENU */
+    .menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 70%;
+      height: 100%;
+      background: white;
+      color: black;
+      padding: 50px 20px;
+      transition: 0.3s;
+      z-index: 4;
+    }
+
+    .menu.active {
+      right: 0;
+    }
+
+    .menu a {
+      display: block;
+      margin: 20px 0;
+      text-decoration: none;
+      color: black;
+      font-size: 1.2rem;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* DESKTOP */
+    @media(min-width: 768px) {
+      .content {
+        padding-top: 100px;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      p {
+        font-size: 1.1rem;
+      }
+
+      .menu {
+        width: 30%;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+<div class="hero">
+  <div class="overlay"></div>
+
+  <!-- HAMBURGER -->
+  <div class="hamburger" onclick="openMenu()">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div class="content">
+
+    <!-- CAROUSEL -->
+    <div class="carousel">
+      <div class="slides" id="slides">
+        <div class="slide"><img src="img1.jpg" alt=""></div>
+        <div class="slide"><img src="img2.jpg" alt=""></div>
+        <div class="slide"><img src="img3.jpg" alt=""></div>
+      </div>
+
+      <button class="carousel-btn prev" onclick="prevSlide()">‹</button>
+      <button class="carousel-btn next" onclick="nextSlide()">›</button>
+    </div>
+
+    <!-- PROJECT OVERVIEW -->
+    <h2>Project Overview</h2>
+    <p>
+      (Brief description of the project)
+    </p>
+
+    <!-- TOOLS -->
+    <h2>Tools Used</h2>
+    <ul>
+      <li>Tool 1</li>
+      <li>Tool 2</li>
+      <li>Tool 3</li>
+    </ul>
+
+    <!-- YOUTUBE -->
+    <a class="link" href="https://youtube.com" target="_blank">
+      Watch Demonstration Video
+    </a>
+
+    <br>
+
+    <!-- PDF -->
+    <a class="link" href="portfolio.pdf" download>
+      Download Project PDF
+    </a>
+
+  </div>
+</div>
+
+<!-- MENU -->
+<div class="menu" id="menu">
+  <div class="close-btn" onclick="closeMenu()">&times;</div>
+  <a href="indexEng.html">Home</a>
+  <a href="showcaseEng.html">Projects</a>
+  <a href="personalEng.html">Personal</a>
+  <a href="mailto: mokoishun620@gmail.com">Contact</a>
+</div>
+
+<script>
+  // MENU
+  function openMenu() {
+    document.getElementById('menu').classList.add('active');
+  }
+
+  function closeMenu() {
+    document.getElementById('menu').classList.remove('active');
+  }
+
+  // CAROUSEL
+  let index = 0;
+  const slides = document.getElementById('slides');
+  const totalSlides = 3;
+
+  function updateSlide() {
+    slides.style.transform = `translateX(-${index * 100}%)`;
+  }
+
+  function nextSlide() {
+    index = (index + 1) % totalSlides;
+    updateSlide();
+  }
+
+  function prevSlide() {
+    index = (index - 1 + totalSlides) % totalSlides;
+    updateSlide();
+  }
+</script>
+
+</body>
+</html>
+
+<!--https://chatgpt.com/share/69e8130d-3cf4-832e-9c1c-a00a3cd4f3b4 -->

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Other experience</title>
+
+<style>
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body, html {
+  height: 100%;
+  color: white;
+}
+
+/* HERO BACKGROUND */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  background: url('background.jpg') center/cover no-repeat;
+}
+
+/* Overlay */
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  z-index: 1;
+}
+
+/* CONTENT WRAPPER */
+.wrapper {
+  position: relative;
+  z-index: 2;
+  padding: 80px 20px 40px;
+  max-width: 900px;
+  margin: auto;
+}
+
+/* TYPOGRAPHY */
+h1 {
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-size: 1.2rem;
+  margin: 20px 0 10px;
+}
+
+h3 {
+  font-size: 1rem;
+  margin: 20px 0 10px;
+  opacity: 0.8;
+}
+
+p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+/* LIST */
+ul {
+  margin-bottom: 20px;
+  padding-left: 20px;
+}
+
+li {
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+}
+
+/* GRID (tools / skills) */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.card {
+  background: rgba(255,255,255,0.15);
+  padding: 10px;
+  text-align: center;
+  border-radius: 8px;
+  font-size: 0.8rem;
+}
+
+/* HAMBURGER */
+.hamburger {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 3;
+  cursor: pointer;
+}
+
+.hamburger div {
+  width: 25px;
+  height: 3px;
+  background: white;
+  margin: 5px;
+}
+
+/* MENU */
+.menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 70%;
+  height: 100vh;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s;
+  z-index: 4;
+}
+
+.menu a {
+  margin: 15px;
+  text-decoration: none;
+  color: black;
+  font-size: 1.2rem;
+}
+
+.menu.active {
+  right: 0;
+}
+
+/* CLOSE */
+.close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* DESKTOP */
+@media(min-width: 768px) {
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+  }
+
+  p, li {
+    font-size: 1rem;
+  }
+
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HAMBURGER -->
+<div class="hamburger" onclick="openMenu()">
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
+
+<!-- MENU -->
+<div class="menu" id="menu">
+  <div class="close" onclick="closeMenu()">✕</div>
+  <a href="indexChi.html">Home</a>
+  <a href="showcaseChi.html">Projects</a>
+  <a href="personalChi.html">Personal</a>
+  <a href="mailto: mokoishun620@gmail.com">Contact</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="overlay"></div>
+
+  <div class="wrapper">
+
+    <!-- 1. 標題 -->
+    <h1>Project Title</h1>
+
+    <!-- 2. 細標題 -->
+    <h3>Short Subtitle / Tagline</h3>
+
+    <!-- 3. 介紹 -->
+    <p>
+      This project is about... (簡單介紹你個 project)
+    </p>
+
+    <!-- 4. 細標題 -->
+    <h2>Process</h2>
+
+    <!-- 5. 列表 -->
+    <ul>
+      <li>process 1</li>
+      <li>process 2</li>
+      <li>process 3</li>
+      <li>process 4</li>
+    </ul>
+
+    <!-- 6. 細標題 -->
+    <h2>Features</h2>
+
+    <!-- 7. 列表 -->
+    <ul>
+      <li>Feature 1</li>
+      <li>Feature 2</li>
+      <li>Feature 3</li>
+    </ul>
+
+    <!-- 8. 副標題 -->
+    <h3>Tools Used</h3>
+
+    <!-- 9. Grid -->
+    <div class="grid">
+      <div class="card">Tool 1</div>
+      <div class="card">Tool 2</div>
+      <div class="card">Tool 3</div>
+      <div class="card">Tool 4</div>
+    </div>
+
+    <!-- 10. 副標題 -->
+    <h3>Skills Demonstrated</h3>
+
+    <!-- 11. Grid -->
+    <div class="grid">
+      <div class="card">skill 1</div>
+      <div class="card">skill 2</div>
+      <div class="card">skill 3</div>
+      <div class="card">skill 4</div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+function openMenu() {
+  document.getElementById('menu').classList.add('active');
+}
+
+function closeMenu() {
+  document.getElementById('menu').classList.remove('active');
+}
+</script>
+
+</body>
+</html>
+
+<!--https://chatgpt.com/share/69e8aaa8-728c-8327-a13d-e92f5e1292a7 -->
